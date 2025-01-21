@@ -14,6 +14,7 @@ mod models;
 mod responses;
 mod routes;
 mod types;
+mod utils;
 
 #[tokio::main]
 async fn main() {

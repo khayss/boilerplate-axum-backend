@@ -5,7 +5,11 @@ use crate::config::Config;
 pub async fn db(config: &Config) -> Pool<Postgres> {
     let database_url = format!(
         "postgres://{}:{}@{}:{}/{}",
-        config.DB_USERNAME, config.DB_PASSWORD, config.DB_HOST, config.DB_PORT, config.DB_NAME
+        config.POSTGRES_USER,
+        config.POSTGRES_PASSWORD,
+        config.POSTGRES_HOST,
+        config.POSTGRES_PORT,
+        config.POSTGRES_DB
     );
 
     PgPoolOptions::new()

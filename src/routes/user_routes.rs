@@ -13,6 +13,6 @@ pub fn routes(app_state: Arc<AppState>) -> Router {
                 .put(UserController::update_user)
                 .delete(UserController::delete_user),
         )
-        .route("login", post(UserController::login_user))
+        .route("/login", post(UserController::login_user))
         .with_state(app_state)
 }

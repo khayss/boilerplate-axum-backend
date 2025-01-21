@@ -2,28 +2,28 @@ use std::env;
 
 #[allow(non_snake_case)]
 pub struct Config {
-    pub DB_USERNAME: String,
-    pub DB_PASSWORD: String,
-    pub DB_HOST: String,
-    pub DB_PORT: String,
-    pub DB_NAME: String,
+    pub POSTGRES_USER: String,
+    pub POSTGRES_PASSWORD: String,
+    pub POSTGRES_HOST: String,
+    pub POSTGRES_PORT: String,
+    pub POSTGRES_DB: String,
 }
 
 impl Config {
     #[allow(non_snake_case)]
     pub fn init() -> Self {
-        let DB_USERNAME = get_env("DB_USERNAME");
-        let DB_PASSWORD = get_env("DB_PASSWORD");
-        let DB_HOST = get_env("DB_HOST");
-        let DB_PORT = get_env("DB_PORT");
-        let DB_NAME = get_env("DB_NAME");
+        let POSTGRES_USER = get_env("POSTGRES_USER");
+        let POSTGRES_PASSWORD = get_env("POSTGRES_PASSWORD");
+        let POSTGRES_HOST = get_env("POSTGRES_HOST");
+        let POSTGRES_PORT = get_env("POSTGRES_PORT");
+        let POSTGRES_DB = get_env("POSTGRES_DB");
 
         Config {
-            DB_USERNAME,
-            DB_PASSWORD,
-            DB_HOST,
-            DB_PORT,
-            DB_NAME,
+            POSTGRES_USER,
+            POSTGRES_PASSWORD,
+            POSTGRES_HOST,
+            POSTGRES_PORT,
+            POSTGRES_DB,
         }
     }
 }

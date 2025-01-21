@@ -6,7 +6,7 @@ pub type Result<T> = core::result::Result<T, AppError>;
 #[derive(Debug, Serialize)]
 pub enum AppError {
     DbError,
-
+    Common,
 }
 
 impl IntoResponse for AppError {
