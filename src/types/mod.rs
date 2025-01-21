@@ -1,0 +1,1 @@
+// pub type StateType = std::sync::Arc<crate::AppState>;

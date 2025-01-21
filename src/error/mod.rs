@@ -4,7 +4,10 @@ use serde::Serialize;
 pub type Result<T> = core::result::Result<T, AppError>;
 
 #[derive(Debug, Serialize)]
-pub enum AppError {}
+pub enum AppError {
+    DbError,
+
+}
 
 impl IntoResponse for AppError {
     fn into_response(self) -> axum::response::Response {

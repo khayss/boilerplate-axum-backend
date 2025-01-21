@@ -1,14 +1,16 @@
+use std::sync::Arc;
+
 use axum::Router;
 
-mod routes_health;
-mod routes_hello;
-mod routes_user;
+use crate::AppState;
 
-pub fn routes_all() -> Router {
-    let routes_api = Router::new().nest("/users", routes_user::routes_user());
+mod health_route;
+mod user_routes;
+
+pub fn routes(app_state: Arc<AppState>) -> Router {
+    let api_routes = Router::new().nest("/users", user_routes::routes(app_state));
 
     Router::new()
-        .merge(routes_health::routes_health())
-        .merge(routes_hello::routes_hello())
-        .nest("/api", routes_api)
+        .merge(health_route::route())
+        .nest("/api", api_routes)
 }
